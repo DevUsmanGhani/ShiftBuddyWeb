@@ -1,0 +1,33 @@
+form {
+  @include shadowize;
+  background-color: $shift-buddy-tertiary;
+  padding: 2em;
+  border-radius: .5em;
+  .errors {
+    background-color: lighten($shift-buddy-bad, 35%);
+    color: darken($shift-buddy-bad, 10%);
+    width: 50%;
+    margin: .75em auto;
+    border-radius: .25em;
+    padding: .5em;
+  }
+  .form-header {
+    @extend .secondary;
+    text-align: center;
+    font-weight: bold;
+    &::before,
+    &::after {
+      display: inline-block;
+      content: "";
+      border-top: .1em solid $shift-buddy-secondary;
+      width: 10%;
+      margin: 0 .25em;
+      transform: translateY(-.25em);
+    }
+  }
+  .label {
+    font-size: 1em;
+    @extend .bg-secondary;
+    margin-left: .3em;
+  }
+}

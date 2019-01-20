@@ -1,0 +1,460 @@
+* {
+  box-sizing: border-box;
+ }
+ *:before,
+ *:after {
+  box-sizing: border-box;
+ }
+
+html,
+body {
+  @extend .bg-base;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  height: 100%;
+  position: relative;
+  line-height: 1.5;
+}
+
+footer {
+  @extend .bg-tertiary;
+  height: 2em;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-top: .25em;
+  text-align: center;
+}
+
+h1 {
+  @extend .secondary;
+  font-weight: bold;
+  text-align: center;
+}
+
+.back-header-container{
+  text-align: center;
+  h1 {
+    display: inline-block;
+  }
+  .back {
+    position: absolute;
+    left: 1.5em;
+    top: .25em;
+    display: inline-block;
+    @extend .secondary;
+    font-weight: 400;
+    font-size: 2em;
+    cursor: pointer;
+    background-color: $shift-buddy-tertiary;
+    border-radius: .25em;
+    padding: .25em;
+    &:hover {
+      background-color: darken($shift-buddy-tertiary, 7.5%);
+    }
+  }
+}
+
+
+
+
+
+hr {
+  height: 1px;
+  @extend .bg-secondary;
+}
+
+.loading {
+  @include loading-spinner;
+}
+
+.site-container{
+  min-height: 100vh;
+  position: relative;
+}
+
+.content-container {
+  padding-bottom: 2.5em;
+}
+
+.center {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.underline{
+  border-bottom: 1px solid grey;
+}
+
+.bold {
+  font-weight: bolder;
+}
+
+// Nav links
+.navbar{ 
+  background: $shift-buddy-tertiary ;
+  .navbar-header{
+    color: lighten($shift-buddy-primary, 10%);
+    text-shadow: 1px 1px grey;
+    font-size: 1.5em;
+    font-weight: bolder;
+    &:hover {
+      @extend .primary;
+    }
+  }
+  .navbar-nav {
+    li {
+      a {
+        @extend .secondary;
+      }
+    }
+  }
+  .dropdown-container{
+    @extend .bg-tertiary;
+    .dropdown {
+      margin: -.333em 0em;
+      padding: .3em 0em;
+      @extend .bg-tertiary;
+    }
+  }
+  
+}
+
+// Error Alerts
+.alert-danger {
+  width: 50%;
+  padding: .5em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.save, .cancel {
+  width: 5em;
+  margin-right: .5em;
+}
+
+// Employees
+.employee-container {
+  @include shadowize;
+  background-color: rgba(0, 0, 0, .20);
+  text-align: center;
+  margin: .5em;
+  font-size: 1.25em;
+  font-weight: bold;
+    div{
+      padding: .75em .25em;
+    }
+    .employee-header {
+      @extend .bg-primary;
+      border-radius: .5em 0 0 .5em;
+      background-image: linear-gradient($shift-buddy-primary,lighten($shift-buddy-primary, 10%))
+    }
+    .view-button {
+      color: white;
+      @include buttonize($shift-buddy-secondary);
+    }
+    .edit-button {
+      color: white;
+      @include buttonize($shift-buddy-neutral);
+    }
+    .delete-button {
+      color: white;
+      border-radius: 0 .5em .5em 0;
+      @include buttonize($shift-buddy-bad);
+    }
+    
+}
+
+.employee-page-header, .shift-page-header {
+  margin-left: .5em;
+}
+.add-employee-button, .shift-settings-button {
+  margin-left: .5em;
+}
+
+// Manager Dashboard
+.manager-dashboard{
+  text-align: center;
+  h2 {
+    text-align: center;
+    font-weight: bold;
+  }
+  .side-box {
+    margin-top: 5.5em;
+    .employees-box {
+      @include shadowize();
+      padding: .25em .5em 1.5em;;
+      border-radius: .5em .5em 0 0;
+      background-color: darken($shift-buddy-tertiary, 20%);
+      border-bottom: 4px solid white;
+      .employees-header {
+        color: rgba(255, 255, 255, 0.74);
+        font-weight: bold;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.74);
+        margin-bottom: 1em;
+      };
+      .employees-name {
+        @extend .bg-secondary;
+        color: lighten($shift-buddy-secondary, 45%);
+        border-radius: .5em;
+        display: block;
+        text-decoration: none;
+        width: 75%;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1em;
+        &:hover {
+          background-color: lighten($shift-buddy-secondary, 15%)
+        }
+      }
+    }
+    .shifts-box {
+      @include shadowize();
+      border-radius: 0 0 .5em .5em;
+      padding: .25em .5em 1.5em;
+      background-color: darken($shift-buddy-tertiary, 20%);
+      .shifts-header {
+        font-weight: bold;
+        color: rgba(255, 255, 255, 0.767);
+        text-align: center;
+        border-bottom: 1px solid white;
+        margin-bottom: 1em;
+      } 
+      .shifts-name {
+        @extend .bg-primary;
+        cursor: pointer;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        color: lighten($shift-buddy-primary, 45%);
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        border-radius: .5em;
+        margin-bottom: 1em;
+        width: 75%;
+        &:hover {
+          background-color: lighten($shift-buddy-primary, 15%);
+      }
+    }
+  }
+  .view-all {
+    color: black;
+    text-decoration: none;
+    padding: .25em 1em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    cursor: pointer;
+    @extend .bg-base;
+    border-radius: .5em;
+    margin-top: 1em;
+    &:hover {
+      background-color: darken($shift-buddy-base, 10%);
+    }
+  }
+}
+
+  
+  .log-card {
+    @include shadowize();
+    font-size: 1.5em;
+    text-align: center;
+    padding: 1em;
+    border-radius: .5em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    background-color: darken($shift-buddy-tertiary, 10%);
+    @extend .primary;
+  }
+}
+
+// Inventory Items
+.inventory-items-container {
+  background-color: darken($shift-buddy-tertiary, 10%);
+  border-radius: .5em;
+  margin-top: 2em;
+  padding: 1.5em 2em;
+  @include shadowize;
+    .inventory-items-header {
+      text-align: center;
+      border-bottom: 1px solid $shift-buddy-secondary;
+    }
+    .no-items-added {
+      @extend .bg-bad;
+      color: white;
+      width: 50%;
+      border-radius: .5em;
+      padding: .5em .25em;
+      margin: 1.5em 0;
+    }
+    .inventory-item {
+      @extend .bg-primary;
+      color: white;
+      display: inline-block;
+      width: 29%;
+      margin: 1% 2%;
+      border-radius: .5em;
+      text-align: center;
+      .inventory-item-name{
+        //@extend .bg-primary;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 100%;
+        span {
+          vertical-align: middle;
+          margin-top: .75em;
+          display: inline-block;
+        }
+      }
+      .inventory-item-delete{
+        float: right;
+        cursor: pointer;
+        width: 25%;
+        text-align: center;
+        @extend .bg-bad;
+        padding: .5em;
+        border-radius: 0 .5em .5em 0;
+      }
+    } 
+}
+
+// Shifts
+.shifts-container {
+  cursor: pointer;
+  color: grey;
+  margin: 1em 1em;
+  background-color: lighten($shift-buddy-secondary, 10%);
+  color: white;
+  padding: 1em 1.5em;
+  border-radius: .5em;
+  @include shadowize;
+  .name {
+    font-size: 1.25em;
+    margin-left: -1.5em;
+  };
+  .time {
+    margin-top: .25em;
+  }
+  &:hover {
+    @extend .bg-secondary;
+  }
+}
+
+// Shift-View
+.shift-view-container {
+  h3{
+    @extend .underline, .bold,;
+  }
+  .shift-name {
+    font-weight: 2000;
+  }
+  .shift-report {
+    font-size: 1.2em;
+    line-height: 1.5;
+    background-color: lighten($shift-buddy-tertiary, 20%);
+    border-radius: .25em;
+    div {
+      margin-top: .25em
+    }
+    .header{
+      border-radius: .25em;
+      padding: .25em;
+      color: black;
+      background-color: lighten($shift-buddy-primary, 10%);
+      font-weight: bolder;
+      text-align: center;
+      margin-bottom: 1em;
+    }
+    .start-time, 
+    .end-time {
+      float: right;
+    }
+    .end-drawer{
+      display: inline-block;
+      margin-right: .314em;
+    }
+  }
+}
+
+// Employee View
+.employee-view{
+  .employee-info {
+    color: darken($shift-buddy-tertiary, 50%);
+    font-weight: bold;
+    margin-bottom: 2em;
+    border-radius: 1em;
+    line-height: 2;
+    text-align: center;
+    background-color: darken($shift-buddy-tertiary, 10%);
+    @include shadowize;
+    .profile-picture-container {
+      margin-top: 2em;
+      margin-left: auto;
+      margin-right: auto;
+      width: 25%;
+      @media screen and (min-width: 992px) {      
+        width: 80%;
+      }
+    }
+    .profile-picture {
+      width: 100%;
+      border-radius: 20em;
+    }
+  }
+}
+ // Info in Landing Page
+.info{
+  @extend .center;
+  .header {
+    margin-top: 1em;
+    padding: .5em;
+    border-radius: .5em;
+    font-size: 1.25em;
+    background-color: lighten($shift-buddy-primary, 20%);
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .images-container{
+    @include shadowize;
+    background-color: darken($shift-buddy-tertiary, 20%);
+    margin: 1em auto;
+    border-radius: 1em;
+    padding: 2em;
+  }
+  .image-container{
+    height: 21em;
+    overflow: hidden;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    border-radius: 1em;
+    border: 1px solid white;
+    @media screen and (max-width: 768px){
+      height: 15em;
+    }
+    img {
+      position: absolute;
+      top:-100%; left: 0; right: 0; bottom:-100%;
+      margin: auto;
+    }
+  }
+  .text {
+    @include shadowize;
+    background-color: lighten($shift-buddy-primary, 15%);
+    padding-top: 1em;
+    padding-bottom: 1em;
+    font-style: italic;
+    border-radius: .5em;
+    margin-top: 1em;
+  }
+
+  .bottom-margin {
+    margin-bottom: 3em;
+  }
+}
